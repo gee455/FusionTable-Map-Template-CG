@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Searchable Map Template Demo</title>
+    <title>Autism Alliance Employment Search Tool</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class='navbar-brand' href='index.html'>Searchable Map Template</a>
+          <a class='navbar-brand' href='index.html'>Autism Alliance of Michigan Employment Search Tool</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -36,7 +36,7 @@
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-4'>
-          <p>This is a demo of <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> using Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Fusion Tables</a>. Use this section to give a little context to your map.</p>
+       
           <div class='well'>
             <h4>
               Address <small>(<a id='find_me' href='#'>find me</a>)</small>
@@ -86,8 +86,54 @@
               Reset
             </a>
           </div>
+          
           <div class='alert alert-info' id='result_box' ><strong id='result_count'></strong></div>
+          
+          <!--Custom checkbox filters -->
+          <h4>
+              Recycling services
+          </h4>
+            <ul class='inputs-list unstyled'>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType1' />
+                  <span class='filter-box filter-blue'></span>
+                  City drop-off location
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType2' />
+                  <span class='filter-box filter-green'></span>
+                  Private business
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbType3' />
+                  <span class='filter-box filter-red'></span>
+                  Hazardous materials
+                </label>
+              </li>
+            </ul>
+            
+          <!-- Custom text searches within the results -->
+          <h4>
+              Recyclables
+          </h4>
+            <input class='form-control' id='text_search' placeholder="Enter a recycling location" type='text' />
+          
+          
+          <!-- Display a list of the results -->
+          <div class='well'>
+ 			 <div id='results_list'></div>
+		  </div>
+          
+          
+            
         </div>
+        
+    
         <div class='col-md-8'>
           <noscript>
             <div class='alert alert-info'>
@@ -106,7 +152,7 @@
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.address.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCSg3bQurfz0U61uKn_8CYgPHzcl_Y2JE8"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCkJyQrPz__W5NVJqXXBKzfnL4z98uO9B4"></script>
     <script type="text/javascript" src="js/maps_lib.js"></script>
     <script type='text/javascript'>
       //<![CDATA[
@@ -119,11 +165,11 @@
         
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1m4Ez9xyTGfY2CU6O-UgEcPzlS0rnzLU93e4Faa0",
-            googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
-            locationColumn:     "geometry",
-            map_center:         [41.8781136, -87.66677856445312],
-            locationScope:      "chicago"
+            fusionTableId:      "1v6RbyCYB6tJfZJJEuorqKHeyJd5_mMlVzGc2kLEb",
+            googleApiKey:       "AIzaSyCkJyQrPz__W5NVJqXXBKzfnL4z98uO9B4",
+            locationColumn:     "'Full Address'",
+            map_center:         [42.331427, -83.045754],
+            locationScope:      "michigan"
           });
 
           var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
